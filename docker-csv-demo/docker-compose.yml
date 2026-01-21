@@ -1,0 +1,8 @@
+
+services:
+  app:
+    build: ./app
+    image: csv-demo
+    volumes:
+      - ./data:/data:ro  # Mount host directory as read-only
+      # - ./data:/data    # Mount host directory as read-write
