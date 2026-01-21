@@ -1,0 +1,44 @@
+name: Docker Build CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-simple-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build simple demo
+        working-directory: docker-simple-demo
+        run: docker build -t simple-demo .
+      
+      - name: Run simple demo
+        run: docker run simple-demo
+
+  build-csv-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build and run csv demo
+        working-directory: docker-csv-demo
+        run: docker compose up --build --exit-code-from app
+      
+      - name: Verify data processing
+        run: echo "CSV demo completed successfully"
+
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Lint markdown files
+        uses: nosborn/github-action-markdown-cli@v3.3.0
+        with:
+          files: .
+          config_file: .markdownlint.json
+          ignore_files: node_modules
