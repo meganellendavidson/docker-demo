@@ -1,5 +1,3 @@
-
-
 ## Managing Docker Images
 
 Dont just use 'latest' - use semantic versioning

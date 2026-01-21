@@ -26,7 +26,8 @@ The microwave is where you heat the wheatbag, different microwaves can heat the 
 Docker lets you prepare and heat individual wheatbags but what if you're running a busy hotel that provides guests with wheatbags during turndown service? You need a system to manage hundreds of wheatbags efficiently. That's where orchestration comes in.
 
 Container orchestration (Kubernetes) acts as the hotel manager:
+
 - Scaling: if 50 guests arrive, the hotel manager heats 50 heated wheatbags automatically (creates containers)
-- Load balancing: the hotel manager decides which microwave (node/server) heats which wheatbag for efficiency. 
+- Load balancing: the hotel manager decides which microwave (node/server) heats which wheatbag for efficiency.
 - Health Checks: If a microwave breaks, it moves wheatbags to another one (reschedules containers).
 - Inventory: Ensures enough wheatbags (images) are available.
