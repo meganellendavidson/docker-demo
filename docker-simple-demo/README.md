@@ -4,6 +4,7 @@
 ```bash
 docker build -t ascii-art .
 ```
+
 `-t ascii-art` gives the image a name/tag. the `.` tells docker to look for the Dockerfile in the current directory. 
 
 This may take longer the first time you run  it as it creates a temporay container for each instruction, if you change the Dockerfile and rebuild, Docker will reuse cached layers up to the first change in instruction, which will make it faster.
